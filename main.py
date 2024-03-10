@@ -10,6 +10,6 @@ def root():
 @app.route("/profile", methods=["POST"])
 def profile():
     if request.method == "POST":
-        githubLink = request.form.get("githubLink")
+        githubLink = request.form.get("githubLink") + "?tab=repositories"
         profile = get_github_profile(githubLink)
         return render_template('profile.html', profile_image = profile["profile_image"], profile_name = profile["profile_name"], profile_introduction = profile["profile_introduction"], repos = profile["repos"], profile_id = profile["profile_id"])
