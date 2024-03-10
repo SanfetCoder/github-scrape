@@ -7,6 +7,8 @@ def get_github_profile(url = "https://github.com/SanfetCoder?tab=repositories"):
     html = html_bytes.decode('utf-8')
     # create a soup with Beautifulsoup using read html
     soup = BeautifulSoup(html, 'html.parser')
+    # get profile id
+    profile_id = soup.find_all("span", {"class" : "p-nickname"})[0].text.strip().split(".")[0]
     # get profile name
     profile_name = soup.find_all("span", {"class" : "p-name"})[0].text
     # get profile introduction
@@ -23,6 +25,7 @@ def get_github_profile(url = "https://github.com/SanfetCoder?tab=repositories"):
         repo_name = link.text.replace("\n", "").strip()
         repos.append(repo_name)
     return {
+        "profile_id" : profile_id,
         "profile_name" : profile_name,
         "profile_introduction" : profile_introduction,
         "profile_image" : profile_image,
