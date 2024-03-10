@@ -17,7 +17,14 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <img src="{{profile_image}}"/>
+  <body
+    class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1>{{profile_name}}</h1>
+    <img
+      style="width: 100px; height: 100px"
+      class="rounded-circle"
+      src="{{profile_image}}"
+    />
   </body>
 </html>
