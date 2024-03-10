@@ -18,8 +18,6 @@ def get_github_profile(url = "https://github.com/SanfetCoder?tab=repositories"):
     for link in links:
         repo_name = link.text.replace("\n", "").strip()
         repos.append(repo_name)
-        # if link['itemprop'] == "name codeRepository":
-        #     repos.append(link)
     return {
         "profile_image" : profile_image,
         "repos" : repos

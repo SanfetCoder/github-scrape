@@ -12,5 +12,4 @@ def profile():
     if request.method == "POST":
         githubLink = request.form.get("githubLink")
         profile = get_github_profile(githubLink)
-        print(profile)
-        return "Ok"
+        return render_template('profile.html', profile_image = profile["profile_image"])
