@@ -42,14 +42,19 @@
       />
       <div class="d-flex flex-column">
         <h1 class="fs-5">{{profile_name}}</h1>
+        {% if profile_introduction != "" %}
         <p style="width: 400px" class="fs-7 fw-medium">
           {{profile_introduction}}
         </p>
+        {% else %}
+        <p style="width: 400px" class="fs-7 fw-medium">No description</p>
+        {% endif %}
       </div>
     </div>
 
     <!-- List of repos -->
     <h1 style="font-size: 30px; width: 600px">Your repositories</h1>
+    {% if repos|length > 0 %}
     <ul
       style="height: 350px; width: 600px"
       class="d-flex flex-column gap-3 overflow-scroll p-4 m-0"
@@ -64,5 +69,8 @@
       </a>
       {% endfor %}
     </ul>
+    {% else %}
+    <p class="mt-4">No repositories</p>
+    {% endif %}
   </body>
 </html>

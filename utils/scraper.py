@@ -12,15 +12,12 @@ def get_github_profile(url = "https://github.com/SanfetCoder?tab=repositories"):
     # get profile name
     profile_name = soup.find_all("span", {"class" : "p-name"})[0].text
     # get profile introduction
+    profile_introduction = ""
     profileTargetDivs = soup.find_all("div", {"class" : "js-user-profile-bio"})
     if (len(profileTargetDivs) > 0):
         profileTargetDivsChildrens = profileTargetDivs[0].findChildren(["div"])
         if len(profileTargetDivsChildrens) > 0:
             profile_introduction = profileTargetDivsChildrens[0].text
-        else :
-            profile_introduction = "" 
-    else :
-        profile_introduction = "" 
     # get profile image
     images = soup.find_all('img')
     for image in images:
