@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, json
+from flask import Flask, render_template, request, jsonify
 from utils.scraper import get_github_profile
 
 app = Flask(__name__)
@@ -12,4 +12,5 @@ def profile():
     if request.method == "POST":
         githubLink = request.form.get("githubLink")
         profile = get_github_profile(githubLink)
-        return f'{profile}'
+        print(profile)
+        return "Ok"

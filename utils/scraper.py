@@ -12,7 +12,15 @@ def get_github_profile(url = "https://github.com/SanfetCoder?tab=repositories"):
     for image in images:
         if 'avatar' in image['class']:
             profile_image = image['src']
-    print(profile_image)    
-    return html
-
-get_github_profile()
+    # get a list of repositories
+    repos = []
+    links = soup.select('a[itemprop="name codeRepository"]')
+    for link in links:
+        repo_name = link.text.replace("\n", "").strip()
+        repos.append(repo_name)
+        # if link['itemprop'] == "name codeRepository":
+        #     repos.append(link)
+    return {
+        "profile_image" : profile_image,
+        "repos" : repos
+    }
