@@ -8,7 +8,12 @@ def get_github_profile(url = "https://github.com/SanfetCoder?tab=repositories"):
     # create a soup with Beautifulsoup using read html
     soup = BeautifulSoup(html, 'html.parser')
     # get profile id
-    profile_id = soup.find_all("span", {"class" : "p-nickname"})[0].text.strip().split(".")[0]
+    pronouns = soup.select('span[itemprop="pronouns"]')
+    if len(pronouns) > 0:
+        profile_id = soup.find_all("span", {"class" : "p-nickname"})[0].text.strip().split(".")[0]
+    else :
+        profile_id = soup.find_all("span", {"class" : "p-nickname"})[0].text.strip()
+    print(profile_id)
     # get profile name
     profile_name = soup.find_all("span", {"class" : "p-name"})[0].text
     # get profile introduction
