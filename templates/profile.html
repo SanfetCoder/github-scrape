@@ -20,11 +20,16 @@
   <body
     class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center"
   >
-    <h1>{{profile_name}}</h1>
-    <img
-      style="width: 100px; height: 100px"
-      class="rounded-circle"
-      src="{{profile_image}}"
-    />
+    <div class="d-flex flex-row gap-3">
+      <img
+        style="width: 100px; height: 100px"
+        class="rounded-circle"
+        src="{{profile_image}}"
+      />
+      <div class="d-flex flex-column">
+        <h1 class="fs-5">{{profile_name}}</h1>
+        <p style="width: 400px;" class="fs-7">{{profile_introduction}}</p>
+      </div>
+    </div>
   </body>
 </html>
